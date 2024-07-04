@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Lecture 2: Image Classification - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Notes for UMich EECS498</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Lecture 2: Image Classification</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#lecture-2-image-classification" class="nav-link">Lecture 2: Image Classification</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#challenges" class="nav-link">Challenges</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#use-cases" class="nav-link">Use Cases</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#image-classifier" class="nav-link">Image Classifier</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="lecture-2-image-classification">Lecture 2: Image Classification</h1>
+<p>Image classification is a core computer vision task</p>
+<h2 id="challenges">Challenges</h2>
+<ul>
+<li>
+<p>Semantic Gap: the difference between the visual appearance of an object and the semantic meaning of the object, and the computer cannot overcome this by intuition</p>
+</li>
+<li>
+<p>Viewpoint Variation: the appearance of an object can change drastically depending on the viewpoint</p>
+</li>
+<li>
+<p>Intra-class Variation: mass variation within the same class</p>
+</li>
+<li>
+<p>Fine-Grained Categories: the difference between classes is very subtle</p>
+</li>
+<li>
+<p>Background Clutter: the background can be very complex and can confuse the model</p>
+</li>
+<li>
+<p>Illumination: the appearance of an object can change drastically depending on the lighting</p>
+</li>
+<li>
+<p>Deforamation: the appearance of an object can change drastically depending on the deformation</p>
+</li>
+<li>
+<p>Occlusion: objects can be partially occluded</p>
+</li>
+</ul>
+<h2 id="use-cases">Use Cases</h2>
+<ul>
+<li>Medical Imaging</li>
+<li>Galaxy Classification</li>
+<li>......</li>
+</ul>
+<p>Image classification can also be a building block for other computer vision tasks, such as object detection, segmentation, etc.</p>
+<h2 id="image-classifier">Image Classifier</h2>
+<p>Machine learning is a data-driven approach for building image classifiers. The process is as follows:</p>
+<ol>
+<li>Collect a dataset of images and labels</li>
+<li>Use a machine learning algorithm to train a classifier</li>
+<li>Evaluate the classifier on new images</li>
+</ol>
+<h3 id="datasets">Datasets</h3>
+<p>Some famous datasets for image classification:</p>
+<ul>
+<li>MNIST</li>
+<li>CIFAR-10</li>
+<li>ImageNet</li>
+<li>MIT Places</li>
+</ul>
+<p>One direction is to build larger datasets, while another direction is to build more challenging datasets.</p>
+<ul>
+<li>Omniglot: meant to test few-shot learning</li>
+</ul>
+<h3 id="algorithms">Algorithms</h3>
+<p><strong>Nearest Neighbor Classifier</strong>
+During training, the classifier memorizes all the training data. During testing, the classifier finds the most similar training image to the testing image and assigns the label of the most similar training image to the testing image.</p>
+<p>Distance matrices can be used to find the most similar training image. L1 distance is the sum of the absolute differences between the pixel values of the two images. </p>
+<p>$$
+d_1(I_1, I_2) = \sum_p |I_1^p - I_2^p|
+$$</p>
+<p>The training speed of the nearest neighbor is constant "O(1)". However, the testing speed is slow "O(N)".</p>
+<p>Images with low L1 distance can still be very different. Nearest neighbors tend to perform poorly on high-dimensional data. Its decision boundary is very noisy.</p>
+<p><strong>K-Nearest Neighbor Classifier</strong>
+Instead of finding the most similar training image, the classifier finds the K most similar training images and assigns the label that appears the most among(majority vote) the K most similar training images.</p>
+<p>An increase in K can smooth the decision boundary, but empty space can be misclassified.</p>
+<p>Using other distance metrics can also improve the performance of the classifier, such as L2 distance. This is a way human knowledge can be incorporated into the model.</p>
+<p><strong>Hyperparameters</strong>
+Hyperparameters are parameters that are not learned during training. They are set before training and are not changed during training. For example, K in the K-Nearest Neighbor Classifier is a hyperparameter.</p>
+<p>Hyperparameters are very problem-dependent. Some ideas to set hyperparameters are:</p>
+<ul>
+<li>Choose hyperparameters that work best on the training set: K=1 is a bad example</li>
+<li>Choose hyperparameters that work best on the testing set: No idea how the algorithm will perform on new data, and the testing set should not be used to improve the model</li>
+<li>Choose hyperparameters that work best on the validation set: split the training set into training set, testing set and validation set, and use the validation set to tune the hyperparameters. The testing set is only used to evaluate the model.</li>
+<li>Cross-validation: split the training set into many folds, and use each fold as the validation set and the rest as the training set. The average performance of the model on the validation set is the performance of the model. This is computationally expensive but good for small datasets.</li>
+</ul>
+<p><strong>Curse of Dimensionality</strong>
+For uniformly distributed data, the volume of the data increases exponentially with the dimensionality of the data. This means that the data becomes sparse in high-dimensional space. This is a problem for the nearest neighbor classifier and the reason why it is rarely used in practice.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
